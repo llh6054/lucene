@@ -4,9 +4,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Paths;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.cjk.CJKAnalyzer;
@@ -32,18 +35,19 @@ import org.apache.lucene.store.FSDirectory;
 public class CreateIndex {
 
 	private static final String INDEX_DIR = "E:/index/";
-	
+	private static List<File> fileList = new LinkedList<File>();
 	
 	public static void main(String[] args) throws IOException, ParseException {
 	//	CreateIndex ci = new CreateIndex();
-		File file = new File("E:/index/1.txt");
+//		File file = new File("E:/index/1.txt");
 	//	ci.indexFile(file);
 //		Analyzer analyzer = new StandardAnalyzer();
 //		QueryParser parser = new QueryParser("contents", analyzer);
 //		Query query = parser.parse("test");
 //		CreateIndex.searchIndex(query);
-		CreateIndex.indexFile(file);
-		CreateIndex.searchIndex();
+//		CreateIndex.indexFile(file);
+//		CreateIndex.searchIndex();
+		listFile(INDEX_DIR);
 		
 	}
 	
@@ -159,6 +163,34 @@ public class CreateIndex {
 		}
 		
 		return sb.toString();
+	}
+	
+	/**
+	 * 获取路径下的文件
+	 */
+	public static File[] listFile(String path) {
+		File[] files = null;
+		
+		File curFile = new File(path);
+		System.out.println(path);
+		if(!curFile.isDirectory()) {
+			fileList.add(curFile);
+		}
+			
+		if(curFile.isDirectory()) {
+			files = curFile.listFiles();
+			for(File file: files) {
+				if(file.isDirectory()) {
+					listFile(file.getAbsolutePath());
+				}
+				else {
+					fileList.add(file);
+					System.out.println(file.getName());
+				}
+					
+			}
+		}
+		return files;
 	}
 
 }
