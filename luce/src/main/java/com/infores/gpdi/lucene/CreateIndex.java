@@ -29,8 +29,7 @@ import org.apache.lucene.store.FSDirectory;
 
 public class CreateIndex {
 
-	private static final String INDEX_DIR = "E:/index/";
-	private static final List<File> fileList = new LinkedList<File>();
+	private static final String INDEX_DIR = "E:/study/C/let us c - yashwant kanetkar";
 	
 	public static void main(String[] args) throws IOException, ParseException {
 	//	CreateIndex ci = new CreateIndex();
@@ -42,7 +41,7 @@ public class CreateIndex {
 //		CreateIndex.searchIndex(query);
 //		CreateIndex.indexFile(file);
 //		CreateIndex.searchIndex();
-		listFile(INDEX_DIR);
+		FileUtils.listFile(INDEX_DIR);
 		batchReadFile();
 		
 	}
@@ -128,38 +127,12 @@ public class CreateIndex {
 	}
 	
 	
-	/**
-	 * 获取路径下的文件
-	 */
-	public static File[] listFile(String path) {
-		File[] files = null;
-		
-		File curFile = new File(path);
-//		System.out.println(path);
-		if(!curFile.isDirectory()) {
-			fileList.add(curFile);
-		}
-			
-		if(curFile.isDirectory()) {
-			files = curFile.listFiles();
-			for(File file: files) {
-				if(file.isDirectory()) {
-					listFile(file.getAbsolutePath());
-				}
-				else {
-					fileList.add(file);
-	//				System.out.println(file.getName());
-				}
-					
-			}
-		}
-		return files;
-	}
 	
 	/**
 	 * 分组批量读取文件
 	 */
 	public static void batchReadFile() {
+		List<File> fileList = FileUtils.getFileList();
 		int threadOrder = 0;
 		int beginPosition = threadOrder * 100;
 		int endPosition = 100 * (threadOrder + 1) > fileList.size() - 1 ? fileList.size() - 1 :  100 * (threadOrder + 1);
