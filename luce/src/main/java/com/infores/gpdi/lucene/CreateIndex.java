@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Paths;
@@ -35,7 +34,7 @@ import org.apache.lucene.store.FSDirectory;
 public class CreateIndex {
 
 	private static final String INDEX_DIR = "E:/index/";
-	private static List<File> fileList = new LinkedList<File>();
+	private static final List<File> fileList = new LinkedList<File>();
 	
 	public static void main(String[] args) throws IOException, ParseException {
 	//	CreateIndex ci = new CreateIndex();
@@ -48,6 +47,7 @@ public class CreateIndex {
 //		CreateIndex.indexFile(file);
 //		CreateIndex.searchIndex();
 		listFile(INDEX_DIR);
+		batchReadFile();
 		
 	}
 	
@@ -68,7 +68,7 @@ public class CreateIndex {
 			try {
 				Document doc = new Document();
 				
-				String content = CreateIndex.getContent(file);
+				String content = FileUtils.getContent(file);
 				String name = file.getName();
 				String path = file.getAbsolutePath();
 				
@@ -131,39 +131,6 @@ public class CreateIndex {
         System.out.println("共为您查找到"+td.totalHits+"条结果");  
 	}
 	
-	/**
-	 * 获取文本内容
-	 * @param file
-	 * @return
-	 * @throws IOException
-	 */
-	public static String getContent(File file) {
-		FileInputStream fis;
-		StringBuffer sb = new StringBuffer();
-		try {
-			fis = new FileInputStream(file);
-			InputStreamReader isr = new InputStreamReader(fis);
-			BufferedReader br = new BufferedReader(isr);
-			String line;
-			try {
-				while((line = br.readLine()) != null) {
-					sb.append(line);
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}finally {
-				try {
-					br.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		
-		return sb.toString();
-	}
 	
 	/**
 	 * 获取路径下的文件
@@ -172,7 +139,7 @@ public class CreateIndex {
 		File[] files = null;
 		
 		File curFile = new File(path);
-		System.out.println(path);
+//		System.out.println(path);
 		if(!curFile.isDirectory()) {
 			fileList.add(curFile);
 		}
@@ -185,12 +152,26 @@ public class CreateIndex {
 				}
 				else {
 					fileList.add(file);
-					System.out.println(file.getName());
+	//				System.out.println(file.getName());
 				}
 					
 			}
 		}
 		return files;
 	}
+	
+	/**
+	 * 分组批量读取文件
+	 */
+	public static void batchReadFile() {
+		int threadOrder = 0;
+		int beginPosition = threadOrder * 100;
+		int endPosition = 100 * (threadOrder + 1) > fileList.size() - 1 ? fileList.size() - 1 :  100 * (threadOrder + 1);
+		while(threadOrder < fileList.size() / 100.0) {
+			new BatchReadTask(fileList, beginPosition, endPosition).run();
+			threadOrder++;
+		}
+	}
+	
 
 }
