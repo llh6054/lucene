@@ -1,4 +1,4 @@
-package com.infores.gpdi.lucene;
+package com.infores.gpdi.lucene.file;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * 文件操作工具类
@@ -66,7 +67,7 @@ public class FileUtils {
 	 * @param path
 	 */
 	public static void listFile(String path) {
-		listFile(path, null);
+		listFile(path, new RegexFileNameFilter(""));
 	}
 	
 	/**
@@ -78,12 +79,12 @@ public class FileUtils {
 		File[] files = null;
 		
 		File curFile = new File(path);
-		if(!curFile.isDirectory()) {
+		if(!curFile.isDirectory() && fileNameFilter.accept(curFile, curFile.toString())) {	//是文件则手动调用accept方法
 			fileList.add(curFile);
 		}
 			
 		if(curFile.isDirectory()) {
-			files = curFile.listFiles();
+			files = curFile.listFiles(fileNameFilter);
 			for(File file: files) {
 				if(file.isDirectory()) {
 					listFile(file.getAbsolutePath());
@@ -97,39 +98,25 @@ public class FileUtils {
 	}
 	
 	/**
-	 * 正向过滤器
+	 * 正则过滤器
 	 * @author chubby
 	 *
 	 */
-	public class IncludeFileNameFilter implements FilenameFilter {
+	public static class RegexFileNameFilter implements FilenameFilter {
 		
-		public IncludeFileNameFilter(String include) {
-			
+		private Pattern pattern;
+		
+		public RegexFileNameFilter(String regex) {
+			pattern = Pattern.compile(regex);
 		}
 
 		@Override
 		public boolean accept(File dir, String name) {
-			return false;
+			return pattern.matcher(name).matches();
 		}
 		
 	}
 	
-	/**
-	 * 反向过滤器
-	 * @author chubby
-	 *
-	 */
-	public class ExcludeFileFilter implements FilenameFilter {
-		
-		public ExcludeFileFilter(String exclude) {
-		}
-
-		@Override
-		public boolean accept(File dir, String name) {
-			return false;
-		}
-		
-	}
 	
 	
 }

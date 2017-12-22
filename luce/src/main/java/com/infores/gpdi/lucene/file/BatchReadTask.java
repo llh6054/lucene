@@ -1,4 +1,4 @@
-package com.infores.gpdi.lucene;
+package com.infores.gpdi.lucene.file;
 
 import java.io.File;
 import java.util.List;
