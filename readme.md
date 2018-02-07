@@ -1,9 +1,11 @@
-¼òµ¥½Ì³Ì
-https://segmentfault.com/a/1190000003101607
-lucene·Ö´ÊÆ÷
-http://blog.csdn.net/liweisnake/article/details/12568209
+Luceneå­¦ä¹ 
 
-luceneÖ¸ÄÏ
-https://www.gitbook.com/book/felayman/lucene/details
+ç®€å•æ•™ç¨‹
+https://segmentfault.com/a/1190000003101607<br>
+luceneåˆ†è¯å™¨
+http://blog.csdn.net/liweisnake/article/details/12568209<br>
+
+luceneæŒ‡å—
+https://www.gitbook.com/book/felayman/lucene/details<br>
 wiki
-https://wiki.apache.org/lucene-java/FrontPage?action=show&redirect=FrontPageEN
+https://wiki.apache.org/lucene-java/FrontPage?action=show&redirect=FrontPageEN<br>
