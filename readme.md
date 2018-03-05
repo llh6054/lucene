@@ -16,4 +16,6 @@ http://blog.csdn.net/jlr_6/article/details/5707143<br>
 Analyzer  
 https://www.cnblogs.com/forfuture1978/archive/2010/06/06/1752837.html  
 简单教程  
-https://www.tutorialspoint.com/lucene/lucene_standardanalyzer.htm
+https://www.tutorialspoint.com/lucene/lucene_standardanalyzer.htm  
+弱引用、强引用、软引用、虚引用  
+http://blog.51cto.com/zhangjunhd/53092
