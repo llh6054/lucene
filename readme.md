@@ -26,7 +26,9 @@ https://www.jianshu.com/p/cf6d96155980
 + lucene分词器  
 http://blog.csdn.net/liweisnake/article/details/12568209  
 + 中文分词分词效果  
-https://blog.csdn.net/shudaqi2010/article/details/54573569
+https://blog.csdn.net/shudaqi2010/article/details/54573569  
++ 分词原理与方式  
+https://blog.csdn.net/u010366796/article/details/44936859
 
 #### 简易教程  
 https://www.tutorialspoint.com/lucene/lucene_standardanalyzer.htm 
