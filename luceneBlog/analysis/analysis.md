@@ -1,21 +1,257 @@
-					### Lucene·Ö´Ê  
-1. #### ¸ÅÄî  
-ËùÓĞ´«µİ¸øLucene½øĞĞË÷ÒıµÄÎÄ±¾¶¼ĞèÒª¾­ÀúÒ»¸ö¹ı³Ì----·Ö´Ê£¬¼´£º½«ÎÄ±¾·Ö¸îÎªÒ»¸ö¸öµÄ×ã¹»Ğ¡µÄ×Ö»òÕß´Ê¡£  
-°üÀ¨µ«²»ÏŞÓÚ£º  
-+ ##### Ô­ĞÍÌæ»»£º½«µ¥´ÊÌæ»»ÎªËüÃÇµÄÔ­ĞÍ£¬ÀıÈçÓÃbikeÌæ»»bikes,ÕâÑùÔÚËÑË÷bikeµÄÊ±ºòbike¡¢bikes¶¼ÄÜ¹»±»ËÑË÷³öÀ´¡£
-+ ##### ´Ê¹ıÂË£ºÎÄ±¾ÖĞĞí¶à¸ßÆµ³öÏÖµÄ´ÊÊµ¼Ê²¢ÎŞÒâÒå£¬ÀıÈç¡°µÄ¡±¡¢¡°a¡±¡¢¡°the¡±,ÌŞ³ıËüÃÇ²»½öÄÜ½µµÍË÷ÒıµÄ¿Õ¼ä£¬¶øÇÒÓĞÖúÓÚÌá¸ßË÷ÒıµÄËÑË÷Ğ§ÂÊºÍÖÊÁ¿¡£
-+ ##### ÎÄ±¾±ê×¼»¯£ºÎÄ±¾ÖĞÊ±³£»á³öÏÖÒ»Ğ©ÆäËûµÄ¶«Î÷£¬½«ÎÄ±¾±ê×¼»¯ÓĞÖúÓÚÌá¸ßËÑË÷ÖÊÁ¿¡£
-+ ##### Í¬Òå´ÊÀ©Õ¹£º½øĞĞÍ¬Òå´ÊÀ©Õ¹ÓĞÖúÓÚÌá¸ßËÑË÷ÖÊÁ¿£¬ÀıÈçÆ¯ÁÁ=ÃÀÀö¡£  
-2. #### ¸ºÔğ·Ö´ÊµÄ¼¸¸öºËĞÄÀà¡¢½Ó¿Ú
-+ ##### Analyzer   
-AnalyzerµÄÖ°ÔğÊÇÎªËÑË÷¡¢Ë÷Òı¹ı³ÌÌá¹©tokenStream£¬´ó²¿·ÖÊ±ºò¿ÉÒÔÊµÏÖÎªÒ»¸öÄäÃû×ÓÀà
+â€‹					     Luceneåˆ†è¯  
+
+#### 1.  æ¦‚å¿µ  
+æ‰€æœ‰ä¼ é€’ç»™Luceneè¿›è¡Œç´¢å¼•çš„æ–‡æœ¬éƒ½éœ€è¦ç»å†ä¸€ä¸ªè¿‡ç¨‹----åˆ†è¯ï¼Œå³ï¼šå°†æ–‡æœ¬åˆ†å‰²ä¸ºä¸€ä¸ªä¸ªçš„è¶³å¤Ÿå°çš„è¯æˆ–è€…å­—ã€‚  åŒ…æ‹¬ä½†ä¸é™äºï¼š  
+
++ ##### åŸå‹æ›¿æ¢ï¼šå°†å•è¯æ›¿æ¢ä¸ºå®ƒä»¬çš„åŸå‹ï¼Œä¾‹å¦‚ç”¨bikeæ›¿æ¢bikes,è¿™æ ·åœ¨æœç´¢bikeçš„æ—¶å€™bikeã€bikeséƒ½èƒ½å¤Ÿè¢«æœç´¢å‡ºæ¥ã€‚
+
++ ##### è¯è¿‡æ»¤ï¼šæ–‡æœ¬ä¸­è®¸å¤šé«˜é¢‘å‡ºç°çš„è¯å®é™…å¹¶æ— æ„ä¹‰ï¼Œä¾‹å¦‚â€œçš„â€ã€â€œaâ€ã€â€œtheâ€,å‰”é™¤å®ƒä»¬ä¸ä»…èƒ½é™ä½ç´¢å¼•çš„ç©ºé—´ï¼Œè€Œä¸”æœ‰åŠ©äºæé«˜ç´¢å¼•çš„æœç´¢æ•ˆç‡å’Œè´¨é‡ã€‚
+
++ ##### æ–‡æœ¬æ ‡å‡†åŒ–ï¼šæ–‡æœ¬ä¸­æ—¶å¸¸ä¼šå‡ºç°ä¸€äº›å…¶ä»–çš„ä¸œè¥¿ï¼Œå°†æ–‡æœ¬æ ‡å‡†åŒ–æœ‰åŠ©äºæé«˜æœç´¢è´¨é‡ã€‚
+
++ ##### åŒä¹‰è¯æ‰©å±•ï¼šè¿›è¡ŒåŒä¹‰è¯æ‰©å±•æœ‰åŠ©äºæé«˜æœç´¢è´¨é‡ï¼Œä¾‹å¦‚æ¼‚äº®=ç¾ä¸½ã€‚  
+
+#### 2. è´Ÿè´£åˆ†è¯çš„å‡ ä¸ªæ ¸å¿ƒç±»ã€æ¥å£
+
+##### Analyzer   
+ã€€ã€€Analyzerçš„èŒè´£æ˜¯ä¸ºæœç´¢ã€ç´¢å¼•è¿‡ç¨‹æä¾›tokenStreamï¼Œå¤§éƒ¨åˆ†æ—¶å€™å¯ä»¥å®ç°ä¸ºä¸€ä¸ªåŒ¿åå­ç±»ã€€ã€€
+
++ ä¸»è¦æ–¹æ³•å’Œå†…éƒ¨ç±»:  
+  ã€€ã€€staticå†…éƒ¨ç±»TokenStreamComponents å¯¹è¾“å…¥tokenizerå’Œè¾“å‡ºtokenStreamè¿›è¡Œäº†ç®€å•çš„å°è£…ã€‚  
+  ã€€ã€€staticçš„æŠ½è±¡å†…éƒ¨ç±»ReuseStrategyå®šä¹‰äº†å¯¹TokenStreamComponentsçš„é‡ç”¨ç­–ç•¥ã€‚ã€€
+  ã€€ã€€GLOBAL_REUSE_STRATEGYå’ŒPER_FIELD_REUSE_STRATEGYã€€Analyzer.ReuseStrategyçš„ä¸¤ç§å®ç°ï¼Œåˆ†åˆ«ä¸ºå…±ç”¨ä¸€ä¸ªTokenStreamComponentsä»¥åŠä¸ºæ¯ä¸ªfieldç»´æŠ¤ä¸€TokenStreamComponents 
+  ã€€ã€€TokenStream tokenStream(final String fieldName,final Reader reader)ã€€tokenStreamæ˜¯Analyzerçš„å…¥å£ã€‚  
+  ã€€ã€€æŠ½è±¡æ–¹æ³•TokenStreamComponents createComponents(String fieldName)ã€€å®ç°ä¸€ä¸ªAnalyzeréœ€è¦å®ç°è¯¥æ–¹æ³•ï¼ŒAnalyzerçš„tokenStreamæ–¹æ³•ä¼šå°è¯•ä»reuseStrategyä¸­è·å–ä¸€ä¸ª
+  ã€€ã€€TokenStreamComponentsï¼Œè·å–å¤±è´¥åˆ™ä¼šè°ƒç”¨è¯¥æ–¹æ³•ç”Ÿæˆä¸€ä¸ªå¹¶ä¿å­˜è‡³reuseStrategyï¼Œæœ€åä»TokenStreamComponentsä¸­è·å–tokenStreamã€‚  
+
 + ##### Tokenizer
-TokenizerÊÇTokenStreamµÄÒ»¸ö×ÓÀà£¬ËüµÄÖ÷ÒªÖ°ÔğÊÇ½«ÊäÈëÎÄ±¾·ÖÎªÒ»¸ö¸öµÄtoken£¬´ó²¿·ÖÊ±ºòAnalyzer»áÊ¹ÓÃTokenizer×÷Îª·Ö´Ê¹ı³ÌµÄµÚÒ»²½¡£
+  ã€€ã€€Tokenizeræ˜¯TokenStreamçš„ä¸€ä¸ªå­ç±»ï¼Œå®ƒçš„ä¸»è¦èŒè´£æ˜¯å°†è¾“å…¥æ–‡æœ¬åˆ†ä¸ºä¸€ä¸ªä¸ªçš„tokenï¼Œå¤§éƒ¨åˆ†æ—¶å€™Analyzerä¼šä½¿ç”¨Tokenizerä½œä¸ºåˆ†è¯è¿‡ç¨‹çš„ç¬¬ä¸€æ­¥ã€‚  
++ ä¸»è¦æ–¹æ³•ï¼š 
+  ã€€ã€€boolean incrementToken() Tokenizerå’ŒTokenFilterçš„incrementTokenæ–¹æ³•éƒ½å®šä¹‰åœ¨TokenStreamä¸­ï¼Œä½†ç”±äºå®ƒä»¬çš„ä¸åŒèŒè´£å®å¯¼è‡´å®ç°ä¹Ÿä¸å°½ç›¸åŒã€‚ç”±äºAttributeçš„ä¸ªä¸ªå®ç°åªä¼šå®ä¾‹åŒ–ä¸€æ¬¡ï¼Œæ¯ç”Ÿæˆä¸‹ä¸€ä¸ªtokenæ—¶éƒ½éœ€è¦è°ƒç”¨AttributeResourceç±»çš„clearAttributes()æ–¹æ³•ï¼Œæ¸…é™¤ä¸Šä¸€ä¸ªtokençš„Attributeã€‚  
+
 + ##### TokenFilter
-TokenFilterÒ²ÊÇÒ»¸öTokenStreamµÄ×ÓÀà£¬ËüµÄÖ÷ÒªÖ°ÔğµÄ´¦ÀíÒ»¸ö¸öÒÑ¾­±»TokenizerÇĞ¿ªµÄtoken,°üÀ¨µ«²»ÏŞÓÚ£ºÉ¾³ı¡¢Ìî³ä¡¢Í¬Òå´Ê²åÈëµÈµÈ¡£ËùÒÔ£¬
-TokenFilter²»ÊÇ±ØĞëµÄ¡£
+  ã€€ã€€TokenFilterä¹Ÿæ˜¯ä¸€ä¸ªTokenStreamçš„å­ç±»ï¼Œå®ƒçš„ä¸»è¦èŒè´£çš„å¤„ç†ä¸€ä¸ªä¸ªå·²ç»è¢«Tokenizeråˆ‡å¼€çš„token,åŒ…æ‹¬ä½†ä¸é™äºï¼šåˆ é™¤ã€å¡«å……ã€åŒä¹‰è¯æ’å…¥ç­‰ç­‰ã€‚æ‰€ä»¥ï¼ŒTokenFilterä¸æ˜¯å¿…é¡»çš„ã€‚  
++ ä¸»è¦æ–¹æ³•ï¼š  
+  ã€€ã€€TokenFilter(TokenStream input)ã€€æ„é€ å‡½æ•°ï¼Œæ¥æ”¶ä¸€ä¸ªtokenStreamï¼Œå…¸å‹çš„è£…é¥°è€…æ¨¡å¼ï¼Œä¸ºincrementTokenåšå‡†å¤‡ã€‚  
+  ã€€ã€€boolean incrementToken()ã€€è¿‡æ»¤çš„å…³é”®ï¼Œç”Ÿæˆä¸‹ä¸€ä¸ªtokenï¼Œç”±äºä½¿ç”¨çš„æ˜¯ä¸€ä¸ªè£…é¥°è€…æ¨¡å¼ï¼Œå¯¹tokençš„Attributeè¿›è¡Œæ“ä½œä¹‹å‰ï¼Œå¿…é¡»è°ƒç”¨input.incrementTokenã€‚å¯¹äºéœ€è¦çš„tokenè¿”å›trueï¼Œåä¹‹falseã€‚ä¸ºäº†ä½¿å…¶ä»–çš„TokenFilterå’Œæ¶ˆè´¹è€…çŸ¥é“æœ‰å“ªäº›å±æ€§ï¼ŒAttributeå¿…é¡»åœ¨TokenFilterè¿›è¡Œåˆå§‹åŒ–ä¹‹æ—¶å°±æ·»åŠ è¿›æ¥ã€‚åŒæ—¶åœ¨incrementTokenæ–¹æ³•ä¸­è¿›è¡Œç»´æŠ¤ã€‚  
+
 + ##### Attribute
-Attribute¸ºÔğ´æ´¢tokenµÄÊôĞÔ£¬ÀıÈç£ºtokenµÄ×Ö·û´®£¬¿çÔ½µÄtoken¸öÊı£¬×Ö·û´®µÄÆğÊ¼ÖÕÖ¹Î»ÖÃ¡£ÕâĞ©¶¼ÒÑ¾­Ìá¹©ÁËÊµÏÖ£¬µ±È»Ò²¿ÉÒÔÊµÏÖ×Ô¼ºµÄAttribute¡£
+  ã€€ã€€Attributeè´Ÿè´£å­˜å‚¨tokençš„å±æ€§ï¼Œä¾‹å¦‚ï¼štokençš„å­—ç¬¦ä¸²ï¼Œè·¨è¶Šçš„tokenä¸ªæ•°ï¼Œå­—ç¬¦ä¸²çš„èµ·å§‹ç»ˆæ­¢ä½ç½®ã€‚è¿™äº›éƒ½å·²ç»æä¾›äº†å®ç°ï¼Œå½“ç„¶ä¹Ÿå¯ä»¥å®ç°è‡ªå·±çš„Attributeã€‚
 
 
-                                        
+#### 3. ç±»å›¾ä¸åˆ†è¯æµç¨‹
+
+ã€€ã€€ã€€ã€€ ![ç±»å›¾](https://github.com/llh6054/BackUp/blob/master/lucene/analysis/class.png)   
+
+Analyzeræ˜¯åˆ†è¯çš„å…¥å£ï¼Œé¦–å…ˆéœ€è¦å®ç°ä¸€ä¸ªAnalyzer
+
+```
+Analyzer analyzer = new Analyzer() {
+  @Override
+   protected TokenStreamComponents createComponents(String fieldName) {
+     Tokenizer source = new FooTokenizer(reader);
+     TokenStream filter = new FooFilter(source);
+     filter = new BarFilter(filter);
+     return new TokenStreamComponents(source, filter);
+   }
+   @Override
+   protected TokenStream normalize(TokenStream in) {
+     // Assuming FooFilter is about normalization and BarFilter is about
+     // stemming, only FooFilter should be applied
+     return new FooFilter(in);
+   }
+ };
+```
+
+   ä»Analyzerå¾—åˆ°ä¸€ä¸ªTokenStream
+
+```
+
+/**
+	 åˆ†è¯çš„å…¥å£æ˜¯Analyzerï¼Œä»Analyzerå¾—åˆ°ä¸€ä¸ªTokenStreamComponetns,ç„¶åä»TokenStreamComponentsä¸­å¾—çš„ä¸€ä¸ªTokenStream
+*/
+public final TokenStream tokenStream(final String fieldName,
+                                       final Reader reader) {
+    TokenStreamComponents components = reuseStrategy.getReusableComponents(this, fieldName);
+    final Reader r = initReader(fieldName, reader);
+    if (components == null) {	//å­˜åœ¨åˆ™è·å–ï¼Œä¸å­˜åœ¨åˆ™åˆ›å»ºä¸€ä¸ªå¹¶ç¼“å­˜èµ·æ¥
+      components = createComponents(fieldName);
+      reuseStrategy.setReusableComponents(this, fieldName, components);
+    }
+    components.setReader(r);
+    return components.getTokenStream();	//å¾—åˆ°TokenStream
+  }
+
+/**
+	æŠ½è±¡çš„Analyzeræ–¹æ³•ï¼Œéœ€è¦å…·ä½“çš„Analyzerå»å®ç°
+*/
+protected abstract TokenStreamComponents createComponents(String fieldName);
+```
+
+TokenStreamçš„addAttribute(Class<T> clazz)ä¸ºTokenæ·»åŠ å±æ€§
+
+```
+/**
+	ä¸ºTokenæ·»åŠ å±æ€§ï¼Œä¸å­˜åœ¨å­˜åœ¨åˆ™æ·»åŠ ï¼Œå­˜åœ¨åˆ™ç›´æ¥è¿”å›
+*/
+ public final <T extends Attribute> T addAttribute(Class<T> attClass) {
+    AttributeImpl attImpl = attributes.get(attClass);
+    if (attImpl == null) {
+      if (!(attClass.isInterface() && Attribute.class.isAssignableFrom(attClass))) {
+        throw new IllegalArgumentException(
+          "addAttribute() only accepts an interface that extends Attribute, but " +
+          attClass.getName() + " does not fulfil this contract."
+        );
+      }
+      addAttributeImpl(attImpl = this.factory.createAttributeInstance(attClass));
+    }
+    return attClass.cast(attImpl);
+  }
+  
+/**
+	çœŸæ­£çš„æ·»åŠ å±æ€§æ–¹æ³•
+*/
+public final void addAttributeImpl(final AttributeImpl att) {
+    final Class<? extends AttributeImpl> clazz = att.getClass();
+    if (attributeImpls.containsKey(clazz)) return;
+    
+    // add all interfaces of this AttributeImpl to the maps
+    for (final Class<? extends Attribute> curInterface : getAttributeInterfaces(clazz)) 	{
+      // Attribute is a superclass of this interface
+      if (!attributes.containsKey(curInterface)) {
+        // invalidate state to force recomputation in captureState()
+        this.currentState[0] = null;
+        attributes.put(curInterface, att);
+        attributeImpls.put(clazz, att);
+      }
+    }
+  }
+```
+
+è£…é¥°è€…æ¨¡å¼è°ƒç”¨TokenStreamçš„incrementTokenæ–¹æ³•
+
+```
+/**
+LowerCaseFilterä¸­çš„incrementToken
+*/
+@Override
+  public final boolean incrementToken() throws IOException {
+    if (input.incrementToken()) {
+      CharacterUtils.toLowerCase(termAtt.buffer(), 0, termAtt.length()); //ç»´æŠ¤Attribute
+      return true;
+    } else
+      return false;
+  }
+```
+
+ä¸€ä¸ªå®Œæ•´çš„æµç¨‹
+
+ã€€ã€€ã€€ã€€ã€€ã€€![æµç¨‹](https://github.com/llh6054/BackUp/blob/master/lucene/analysis/AnalyseFlow.png)ã€€ã€€
+
+#### 3. å‡ ä¸ªå¸¸ç”¨çš„åˆ†è¯å™¨  
+
+![å¸¸ç”¨åˆ†è¯å™¨](https://github.com/llh6054/BackUp/blob/master/lucene/analysis/commonAnalzer.jpg) 
+
+   
+
+#### 4. å®ç°è‡ªå·±çš„åˆ†è¯å™¨
+
+```
+public class MyAnalyzer extends Analyzer {
+ 
+    @Override
+    protected TokenStreamComponents createComponents(String fieldName) {
+      return new TokenStreamComponents(new WhitespaceTokenizer(matchVersion));
+    }
+     
+}
+```
+
+#### 5. ä¸ƒä¸ªå®ç°çš„Attribute
+
+ Lucene provides seven Attributes out of the box: 
+
+| [`CharTermAttribute`](https://lucene.apache.org/core/7_1_0/core/org/apache/lucene/analysis/tokenattributes/CharTermAttribute.html) | The term text of a token.  Implements [`CharSequence`](https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html?is-external=true)        (providing methods length() and charAt(), and allowing e.g. for direct       use with regular expression [`Matcher`](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Matcher.html?is-external=true)s) and        [`Appendable`](https://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true) (allowing the term text to be appended to.) |
+| ---------------------------------------- | :--------------------------------------- |
+| [`OffsetAttribute`](https://lucene.apache.org/core/7_1_0/core/org/apache/lucene/analysis/tokenattributes/OffsetAttribute.html) | The start and end offset of a token in characters. |
+| [`PositionIncrementAttribute`](https://lucene.apache.org/core/7_1_0/core/org/apache/lucene/analysis/tokenattributes/PositionIncrementAttribute.html) | See above for detailed information about position increment. |
+| [`PositionLengthAttribute`](https://lucene.apache.org/core/7_1_0/core/org/apache/lucene/analysis/tokenattributes/PositionLengthAttribute.html) | The number of positions occupied by a token. |
+| [`PayloadAttribute`](https://lucene.apache.org/core/7_1_0/core/org/apache/lucene/analysis/tokenattributes/PayloadAttribute.html) | The payload that a Token can optionally have. |
+| [`TypeAttribute`](https://lucene.apache.org/core/7_1_0/core/org/apache/lucene/analysis/tokenattributes/TypeAttribute.html) | The type of the token. Default is 'word'. |
+| [`FlagsAttribute`](https://lucene.apache.org/core/7_1_0/core/org/apache/lucene/analysis/tokenattributes/FlagsAttribute.html) | Optional flags a token can have.         |
+| [`KeywordAttribute`](https://lucene.apache.org/core/7_1_0/core/org/apache/lucene/analysis/tokenattributes/KeywordAttribute.html) | Keyword-aware TokenStreams/-Filters skip modification of tokens that       return true from this attribute's isKeyword() method. |
+
+##### 6. å®ç°å¹¶æ·»åŠ è‡ªå·±çš„Attribute  
+
+```
+ /**
+	 æ¥å£å®šä¹‰
+ */
+ public interface PartOfSpeechAttribute extends Attribute {
+     public static enum PartOfSpeech {
+       Noun, Verb, Adjective, Adverb, Pronoun, Preposition, Conjunction, Article, Unknown
+     }
+   
+     public void setPartOfSpeech(PartOfSpeech pos);
+   
+     public PartOfSpeech getPartOfSpeech();
+   } 
+```
+
+```
+/**
+	ç»§æ‰¿AttributeImplå¹¶å®ç°å·²å®šä¹‰æ¥å£
+*/
+public final class PartOfSpeechAttributeImpl extends AttributeImpl 
+                                   implements PartOfSpeechAttribute {
+   
+   private PartOfSpeech pos = PartOfSpeech.Unknown;
+   
+   public void setPartOfSpeech(PartOfSpeech pos) {
+     this.pos = pos;
+   }
+   
+   public PartOfSpeech getPartOfSpeech() {
+     return pos;
+   }
+ 
+   @Override
+   public void clear() {
+     pos = PartOfSpeech.Unknown;
+   }
+ 
+   @Override
+   public void copyTo(AttributeImpl target) {
+     ((PartOfSpeechAttribute) target).setPartOfSpeech(pos);
+   }
+ }
+```
+
+```
+/**
+	æ·»åŠ Attributeåˆ°TokenFilterä¸­
+*/
+public static class PartOfSpeechTaggingFilter extends TokenFilter {
+     PartOfSpeechAttribute posAtt = addAttribute(PartOfSpeechAttribute.class);
+     CharTermAttribute termAtt = addAttribute(CharTermAttribute.class);
+     
+     protected PartOfSpeechTaggingFilter(TokenStream input) {
+       super(input);
+     }
+     
+     public boolean incrementToken() throws IOException {
+       if (!input.incrementToken()) {return false;}
+       posAtt.setPartOfSpeech(determinePOS(termAtt.buffer(), 0, termAtt.length()));
+       return true;
+     }
+     
+     // determine the part of speech for the given term
+     protected PartOfSpeech determinePOS(char[] term, int offset, int length) {
+       // naive implementation that tags every uppercased word as noun
+       if (length > 0 && Character.isUpperCase(term[0])) {
+         return PartOfSpeech.Noun;
+       }
+       return PartOfSpeech.Unknown;
+     }
+   }
+```
