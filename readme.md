@@ -12,6 +12,10 @@
 + 简单教程  
   https://segmentfault.com/a/1190000003101607  
 
++ 整体架构  
+
+  https://blog.csdn.net/liweisnake/article/details/10348969 
+
 
 #### 分词、分词器相关
 + TokenStream和AttributeSource  
