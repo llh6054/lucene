@@ -21,6 +21,7 @@
 + [StandardTokenizerImpl中使用的JFlex](http://blog.csdn.net/dac55300424/article/details/25423805 ) 
   [JFlex](http://blog.csdn.net/jlr_6/article/details/5707143) 
 + [抽象类Analyzer](https://www.cnblogs.com/forfuture1978/archive/2010/06/06/1752837.html) 
++ [IndexWriter](https://zhuanlan.zhihu.com/p/35795070)  
 + [简单分词](https://www.jianshu.com/p/cf6d96155980)
 + [lucene分词器](http://blog.csdn.net/liweisnake/article/details/12568209)  
 + [中文分词分词效果](https://blog.csdn.net/shudaqi2010/article/details/54573569)  
